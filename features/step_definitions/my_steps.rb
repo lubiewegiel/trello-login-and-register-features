@@ -31,12 +31,12 @@ end
 
 When(/^I fill in Email input with "([^"]*)"$/) do |arg|
   email_input = @driver.find_element(:id, 'user')
-  email_input.send_keys arg
+  email_input.send_keys ENV['TRELLO_ACCOUNT_EMAIL_ADDRESS'] || arg
 end
 
 And(/^I fill in Password input with "([^"]*)"$/) do |arg|
   password_input = @driver.find_element(:id, 'password')
-  password_input.send_keys arg
+  password_input.send_keys ENV['TRELLO_ACCOUNT_PASSWORD'] || arg
 end
 
 And(/^I click Log In button$/) do
