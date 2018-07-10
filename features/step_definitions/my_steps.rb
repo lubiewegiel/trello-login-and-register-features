@@ -33,18 +33,22 @@ And(/^I should see Forgot Password link$/) do
   driver.find_element(:xpath, '//a[@href=\'/forgot\']').displayed?
 end
 
-When(/^I fill in Email input with "radoslaw\.inczewski\+trelloTest@gmail\.com"$/) do |arg|
-  pending
+When(/^I fill in Email input with "([^"]*)"$/) do |arg|
+  email_input = driver.find_element(:id, 'user')
+  email_input.send_keys arg
 end
 
 And(/^I fill in Password input with "([^"]*)"$/) do |arg|
-  pending
+  password_input = driver.find_element(:id, 'password')
+  password_input.send_keys arg
 end
 
 And(/^I click Log In button$/) do
-  pending
+  login_button = driver.find_element(:id, 'login')
+  login_button.click
 end
 
 Then(/^I should see Trello profile home page$/) do
-  pending
+  wait = Selenium::WebDriver::Wait.new(:timeout => 10)
+  wait.until { driver.title.start_with? "Home | Trello" }
 end
