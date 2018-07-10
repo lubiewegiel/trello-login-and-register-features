@@ -45,6 +45,6 @@ And(/^I click Log In button$/) do
 end
 
 Then(/^I should see Trello profile home page$/) do
-  wait = Selenium::WebDriver::Wait.new(:timeout => 10)
+  wait = Selenium::WebDriver::Wait.new(:timeout => 5)
   wait.until { @driver.title.start_with? "Home | Trello" }
 end
